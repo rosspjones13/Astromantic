@@ -11,8 +11,22 @@ class User < ApplicationRecord
   validates :birthday, presence: true
   validate :is_legal_age
 
+  delegate :sign, :description, :traits, :element, :polarity, :color, to: :astro, prefix: true
+
   def current_birthday
     Date.parse(self.birthday.strftime('%B %d'))
+  end
+
+  def birthday_formatted
+    self.birthday.strftime('%B %d, %Y')
+  end
+
+  def color_class
+    self.astro_color.downcase.gsub(/[_ ]/,'-')
+  end
+
+  def polarity_class
+    self.astro_polarity.downcase
   end
 
   private 

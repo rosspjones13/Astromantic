@@ -1,0 +1,21 @@
+<div class="profile">
+  <div class="sidebar">
+    <h2><%= @user.name %></h2>
+    <h3>@<%= @user.username %></h3>
+    <h3>Birthday: <%= @user.birthday_formatted %></h3>
+  </div>
+  <main role="main">
+    <div class="astro-info <%= @user.color_class %> <%= @user.polarity_class %>">
+      <h4><%= @user.astro_sign %></h4>
+      <p><%= @user.astro_description %></p>
+      <div class="asto-attribute">
+        <span class="astro-attribute-key">Traits: </span>
+        <span class="astro-attribute-value"><%= @user.astro_traits %></span>
+      </div>
+      <div class="asto-element">
+        <span class="astro-element-key">Element: </span>
+        <span class="astro-element-value"><%= @user.astro_element %></span>
+      </div>
+    </div>
+  </main>
+</div>	
