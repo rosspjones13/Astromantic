@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+
   has_many :matches, foreign_key: "user1_id", dependent: :destroy
   has_many :matched, class_name: "Match", foreign_key: "user2_id", dependent: :destroy
   belongs_to :astro, optional: true

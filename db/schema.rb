@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_165009) do
+ActiveRecord::Schema.define(version: 2019_02_11_213658) do
 
   create_table "astros", force: :cascade do |t|
     t.string "sign"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_165009) do
     t.integer "astro_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.index ["astro_id"], name: "index_users_on_astro_id"
   end
 
