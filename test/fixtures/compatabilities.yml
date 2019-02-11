@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  score: 
+  sign1_id: one
+  sign2_id: one
+
+two:
+  score: 
+  sign1_id: two
+  sign2_id: two
