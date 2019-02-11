@@ -5,13 +5,13 @@ class User < ApplicationRecord
   has_many :matched, class_name: "Match", foreign_key: "user2_id", dependent: :destroy
   belongs_to :astro, optional: true
 
-  after_create :assign_astrological_sign
+  before_create :assign_astrological_sign
 
   validates :name, presence: true
   validates :username, presence: true, uniqueness: true, format: { without: /\s/ }
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^\s]*@[^\s]*\Z/ }
   validates :birthday, presence: true
-  validate :is_legal_age
+  validate :validate_legal_age
 
   delegate :sign, :description, :traits, :element, :polarity, :color, to: :astro, prefix: true
 
@@ -31,10 +31,17 @@ class User < ApplicationRecord
     self.astro_polarity.downcase
   end
 
+  def is_legal_age
+    self.birthday && self.birthday <= 18.years.ago
+  end
+
   private 
 
-  def is_legal_age
-    self.birthday <= 18.years.ago
+  def validate_legal_age
+    if !self.is_legal_age
+      legal_date = 18.years.ago.strftime('%B %d, %Y')
+      errors.add(:birthday, "must be on or after #{legal_date}")
+    end
   end
 
   def find_astrological_sign
