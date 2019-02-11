@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Astro.destroy_all
+Compatability.destroy_all
 
 signs = [
   {sign: "Aries", character: "Ram", traits: "Ambitious, Independent, Impatient", date_start: "3/21", date_end: "4/19", color: "red", element: "Fire", polarity: "Positive", description: "The first sign of the Zodiac, Aries are the trailblazers. Passionate and independent, Aries will never do something just because everyone else is doing it—a Ram needs to be 100 percent committed to the task at hand. Competitive to the max, the best way to motivate an Aries is to turn something into a contest. Aries will put everything they have (and then some) into winning. Loyal, smart, and impulsive, they always have multiple projects on their mind, and won't be satisfied until their work, social life, and personal lives line up exactly with the dream life they've envisioned. Those who are drawn to magnetic Aries may have trouble keeping up—but if they can, they'll have a friend for life."},
@@ -35,14 +38,16 @@ signs = [
 signs.each {|sign| Astro.create(sign)}
 
 50.times do
-  user = User.create(
+  user = User.create!(
     name: Faker::Name.name,
-    bithdate: Faker::Date.between(50.years.ago, 18.years.ago)
+    birthday: Faker::Date.between(50.years.ago, 18.years.ago),
+    email: "@",
+    username: "@"
   )
   
-  user.update(
+  user.update!(
     email: Faker::Internet.free_email(user.name),
-    email: Faker::Internet.username(user.name, %w(. _ -))
+    username: Faker::Internet.username(user.name, %w(. _ -))
   )
 end
 
@@ -218,9 +223,9 @@ score_chart = {
 }
 
 score_chart.each do |key, scores|
-  sign1 = Sign.find_by(sign: key.to_s.capitalize)
+  sign1 = Astro.find_by(sign: key.to_s.capitalize)
   scores.each do |key2, score|
-    sign2 = Sign.find_by(sign: key2.to_s.capitalize)
-    Compatability.create(sign1: sign1, sign2: sign2, score: score)
+    sign2 = Astro.find_by(sign: key2.to_s.capitalize)
+    Compatability.create(astro1: sign1, astro2: sign2, score: score)
   end
 end

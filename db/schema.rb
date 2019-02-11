@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_144803) do
+ActiveRecord::Schema.define(version: 2019_02_11_165009) do
 
   create_table "astros", force: :cascade do |t|
     t.string "sign"
@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 2019_02_11_144803) do
   create_table "compatabilities", force: :cascade do |t|
     t.integer "score"
     t.text "description"
-    t.integer "sign1_id"
-    t.integer "sign2_id"
+    t.integer "astro1_id"
+    t.integer "astro2_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sign1_id"], name: "index_compatabilities_on_sign1_id"
-    t.index ["sign2_id"], name: "index_compatabilities_on_sign2_id"
+    t.index ["astro1_id"], name: "index_compatabilities_on_astro1_id"
+    t.index ["astro2_id"], name: "index_compatabilities_on_astro2_id"
   end
 
   create_table "matches", force: :cascade do |t|
