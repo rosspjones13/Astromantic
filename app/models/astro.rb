@@ -1,9 +1,9 @@
 class Astro < ApplicationRecord
   has_many :users
 
-  validates :sign, presence: true
-  validates :date_start, presence: true
-  validates :date_end, presence: true
+  validates :sign, presence: true, uniqueness: true
+  validates :date_start, presence: true, uniqueness: true
+  validates :date_end, presence: true, uniqueness: true
   validates :color, presence: true
 
   alias_attribute :name, :sign
