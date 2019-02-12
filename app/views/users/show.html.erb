@@ -1,10 +1,13 @@
-<div class="profile">
-  <div class="sidebar">
-    <h2><%= @user.name %></h2>
-    <h3>@<%= @user.username %></h3>
-    <h3>Birthday: <%= @user.birthday_formatted %></h3>
+<div class="profile container"><div class="row">
+  <div class="sidebar col-4">
+    <!-- <div class="profile-photo">
+      <%= image_tag "https://pbs.twimg.com/profile_images/874417950/003-2-square_400x400.jpg", alt: @user.name %>
+    </div> -->
+    <h2 class="profile-name"><%= @user.name %></h2>
+    <span class="profile-username">@<%= @user.username %></span>
+    <span class="profile-birthday">Birthday: <%= @user.birthday_formatted %></span>
   </div>
-  <main role="main">
+  <main role="main" class="col">
     <div class="astro-info <%= @user.color_class %> <%= @user.polarity_class %>">
       <h4><%= @user.astro_sign %></h4>
       <p><%= @user.astro_description %></p>
@@ -18,4 +21,4 @@
       </div>
     </div>
   </main>
-</div>	
+</div></div>	

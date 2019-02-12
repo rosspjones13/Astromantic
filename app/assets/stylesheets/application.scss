@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+
+/* debug */
+
+[class*=col] {
+  // outline: 1px solid purple;
+}
+
+/* header */
+
+header {
+  margin-bottom: 28px;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
