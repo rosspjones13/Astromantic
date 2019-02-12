@@ -44,16 +44,15 @@ class User < ApplicationRecord
   end
 
   def compatibility_with(user)
-    Compatibility.find_by(astro1: self.astro, astro2: user.astro)
+    Compatability.find_by(astro1: self.astro, astro2: user.astro)
   end
 
-  def score_with(user)
-    compatibility_with(user).score
-  end
-
-  def find_matches(min = 80)
+  def generate_matches(min = 80)
     User.all.select do |user|
-      self.score_with(user) >= min
+      compatibility = compatibility_with(user)
+      if compatibility && compatibility.score >= min
+        Match.create(user1: self, user2: user, compatability: compatibility)
+      end
     end
   end
 
