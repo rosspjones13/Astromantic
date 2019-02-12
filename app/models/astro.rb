@@ -8,6 +8,19 @@ class Astro < ApplicationRecord
 
   alias_attribute :name, :sign
 
+  def slug
+    self.sign.downcase.gsub(/\s/,'_')
+  end
+
+  def to_param
+    self.slug
+  end
+
+  def self.find_by_slug(slug_name)
+    name = slug_name.gsub(/[_]/, ' ').titlecase
+    Astro.find_by(sign: name)
+  end
+
   def start_date
     Date.parse(self.date_start)
   end
