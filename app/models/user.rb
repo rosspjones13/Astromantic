@@ -8,7 +8,7 @@ class User < ApplicationRecord
   before_create :assign_astrological_sign
 
   validates :name, presence: true
-  validates :username, presence: true, uniqueness: true, format: { without: /\s/ }
+  validates :username, presence: true, uniqueness: true, format: { without: /[\s.]/ }
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^\s]*@[^\s]*\Z/ }
   validates :birthday, presence: true
   validate :validate_legal_age

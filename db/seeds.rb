@@ -48,7 +48,7 @@ signs.each {|sign| Astro.create(sign)}
   
   user.update!(
     email: Faker::Internet.free_email(user.name),
-    username: Faker::Internet.username(user.name, %w(. _ -))
+    username: Faker::Internet.username(user.name, %w(_ -))
   )
 end
 
