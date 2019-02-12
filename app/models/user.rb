@@ -35,6 +35,10 @@ class User < ApplicationRecord
     self.birthday && self.birthday <= 18.years.ago
   end
 
+  def find_astrological_sign
+    Astro.find { |astro| astro.user_within?(self) }
+  end
+
   private 
 
   def validate_legal_age
@@ -42,10 +46,6 @@ class User < ApplicationRecord
       legal_date = 18.years.ago.strftime('%B %d, %Y')
       errors.add(:birthday, "must be on or after #{legal_date}")
     end
-  end
-
-  def find_astrological_sign
-    Astro.find { |astro| astro.user_within?(self) }
   end
 
   def assign_astrological_sign

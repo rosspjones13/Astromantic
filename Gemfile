@@ -43,6 +43,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'awesome_print'
+  gem 'rspec-rails'
 end
 
 group :development do
