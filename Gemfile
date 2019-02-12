@@ -26,6 +26,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 # Faker Gem
 gem 'faker'
+
+# jQuery
+gem 'jquery-rails'
 # Twitter Bootstrap
 gem 'bootstrap', '~> 4.3.0'
 
