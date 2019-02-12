@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 # Faker Gem
 gem 'faker'
+# Twitter Bootstrap
+gem 'bootstrap', '~> 4.3.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
