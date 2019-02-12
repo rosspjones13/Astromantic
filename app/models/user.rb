@@ -15,6 +15,10 @@ class User < ApplicationRecord
 
   delegate :sign, :description, :traits, :element, :polarity, :color, to: :astro, prefix: true
 
+  def to_param
+    self.username
+  end
+
   def current_birthday
     Date.parse(self.birthday.strftime('%B %d'))
   end
