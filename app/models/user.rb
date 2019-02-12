@@ -43,6 +43,19 @@ class User < ApplicationRecord
     Astro.find { |astro| astro.user_within?(self) }
   end
 
+  def compatibility_with(user)
+    Compatability.find_by(astro1: self.astro, astro2: user.astro)
+  end
+
+  def generate_matches(min = 80)
+    User.all.select do |user|
+      compatibility = compatibility_with(user)
+      if compatibility && compatibility.score >= min
+        Match.create(user1: self, user2: user, compatability: compatibility)
+      end
+    end
+  end
+
   private 
 
   def validate_legal_age

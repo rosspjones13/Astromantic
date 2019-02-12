@@ -1,5 +1,6 @@
 class Astro < ApplicationRecord
   has_many :users
+  has_many :compatabilities, class_name: "Compatability", foreign_key: "astro2_id"
 
   validates :sign, presence: true, uniqueness: true
   validates :date_start, presence: true, uniqueness: true
@@ -7,6 +8,18 @@ class Astro < ApplicationRecord
   validates :color, presence: true
 
   alias_attribute :name, :sign
+
+  def compatibility_with(astro)
+    Compatability.find_by(astro1: self, astro2: astro)
+  end
+
+  def score_with(astro)
+    compatibility_with(astro).score
+  end
+
+  def top_compatible_signs(min = 80)
+    Astro.joins(:compatabilities).where('astro1_id = ?', self.id).where('score >= ?', min).order('score DESC')
+  end
 
   def start_date
     Date.parse(self.date_start)
