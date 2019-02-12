@@ -42,7 +42,8 @@ signs.each {|sign| Astro.create(sign)}
     name: Faker::Name.name,
     birthday: Faker::Date.between(50.years.ago, 18.years.ago),
     email: "@",
-    username: "@"
+    username: "@",
+    password: "password"
   )
   
   user.update!(
