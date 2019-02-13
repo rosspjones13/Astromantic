@@ -4,6 +4,7 @@ class AstrosController < ApplicationController
   end
 
   def show
-    @astro = Astro.find_by_slug(params[:sign])
+    # raise ActiveRecord::RecordNotFound
+    @astro = Astro.find_by_slug(params[:sign]) or not_found
   end
 end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:username]) or not_found
   end
 
   def new
