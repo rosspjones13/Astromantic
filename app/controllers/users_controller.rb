@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorized
-  before_action :get_user, only: %i(show find_matches)
+  before_action :get_user, only: %i(show edit update find_matches)
 
   helper_method :is_current_user?
 
@@ -18,6 +18,17 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render :edit
     end
   end
 

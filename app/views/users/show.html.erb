@@ -9,7 +9,7 @@
 
     <% if is_current_user? %>
       <div class="profile-actions">
-        <%= button_to "Update Profile", edit_user_path(@user) %>
+        <%= link_to "Update Profile", edit_user_path(@user) %>
       </div>
     <% end %>
   </div>
