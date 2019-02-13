@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   before_action :authorized
+  before_action :get_user, only: %i(show find_matches)
 
   helper_method :is_current_user?
 
   def show
-    @user = User.find_by(username: params[:username]) or not_found
   end
 
   def new
@@ -25,9 +25,18 @@ class UsersController < ApplicationController
     @user && @user == current_user
   end
 
+  def find_matches
+    @user.generate_matches
+    redirect_to @user
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :username, :birthday, :password, :password_confirmation)
+  end
+
+  def get_user
+    @user = User.find_by(username: params[:username]) or not_found
   end
 end
