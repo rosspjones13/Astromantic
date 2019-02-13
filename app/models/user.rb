@@ -39,7 +39,7 @@ class User < ApplicationRecord
     Compatability.find_by(astro1: self.astro, astro2: user.astro)
   end
 
-  def generate_matches(min = 80)
+  def generate_matches(min = 85)
     User.all.select do |user|
       compatibility = compatibility_with(user)
       if compatibility && compatibility.score >= min

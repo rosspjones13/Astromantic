@@ -25,8 +25,12 @@ class Astro < ApplicationRecord
     compatibility_with(astro).score
   end
 
-  def top_compatible_signs(min = 80)
+  def top_compatible_signs(min = 85)
     Astro.joins(:compatabilities).where('astro1_id = ?', self.id).where('score >= ?', min).order('score DESC')
+  end
+
+  def top_compatible_string
+    top_compatible_signs.pluck(:sign).join(", ")
   end
 
   def start_date
