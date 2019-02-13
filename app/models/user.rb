@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :matches, foreign_key: "user1_id", dependent: :destroy
   has_many :matched, class_name: "Match", foreign_key: "user2_id", dependent: :destroy
+  # has_many :compatabilities, through: :astro
   belongs_to :astro, optional: true
 
   before_create :assign_astrological_sign
@@ -54,6 +55,10 @@ class User < ApplicationRecord
 
   def matched_users
     self.matches.map(&:user)
+  end
+
+  def sorted_matches
+    self.matches.joins(:compatability).order('score DESC')
   end
 
   private 

@@ -2,7 +2,7 @@
   <h5>Matches</h5>
   <% if @user.matches.any? %>
     <ul class="matches-list">
-    <% @user.matches.each do |match| %>
+    <% @user.sorted_matches.each do |match| %>
       <li class="match-card"><%= render match %></li>
     <% end %>
     </ul>
