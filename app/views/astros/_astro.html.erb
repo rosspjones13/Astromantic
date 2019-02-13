@@ -13,4 +13,10 @@
     <span class="astro-element-key">Element: </span>
     <span class="astro-element-value"><%= astro.element %></span>
   </div>
+  <% if is_current_user? %>
+    <div class="asto-element">
+      <span class="astro-element-key">Today's Horoscope: </span>
+      <span class="astro-element-value"><%= astro.daily_horoscope %></span>
+    </div>
+  <% end %>
 </div>

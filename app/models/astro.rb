@@ -54,6 +54,10 @@ class Astro < ApplicationRecord
     Date.parse(self.date_end)
   end
 
+  def daily_horoscope
+    Horoscope.get_horoscope(self.sign)
+  end
+
   def date_within?(date)
     # ensures date year is current year
     date = Date.parse(date.strftime('%b %d'))

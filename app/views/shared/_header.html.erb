@@ -1,22 +1,31 @@
 <header>
-  <div class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <strong>Astromance</strong>
-      </a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <strong class="navbar-brand">Astromance</strong>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li>
+            <%= link_to "All Signs", astros_path, class: "nav-link" %>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <% if logged_in? %>
-            <li class="nav-item">
-              <%= link_to "Log Out", logout_path, method: :delete, class: "nav-link" %>
-            </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
+              <%= "Hi #{current_user.name}!" %></a>
+            <div class="dropdown-menu">
+              <%= link_to "My Profile", user_path(current_user), class: "nav-item dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Log Out", logout_path, method: :delete, class: "nav-item dropdown-item" %>
+            </div>
+          </li>
           <% else %>
-            <li class="nav-item">
-              <%= link_to "Log In", login_path, class: "nav-link" %>
-            </li>
+          <li class="nav-item">
+            <%= link_to "Log In", login_path, class: "nav-link" %>
+          </li>
           <% end %>
         </ul>
       </div>
     </div>
-  </div>
+  </nav>
 </header>

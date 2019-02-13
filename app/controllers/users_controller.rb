@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   before_action :get_user, only: %i(show edit update find_matches)
   before_action :verify_user, only: %i(edit update)
 
-  helper_method :is_current_user?
-
   def show
   end
 
@@ -31,10 +29,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def is_current_user?
-    @user && @user == current_user
   end
 
   def find_matches
