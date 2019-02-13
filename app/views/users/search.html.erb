@@ -1,0 +1,5 @@
+<div class="container"><ul>
+  <% @results.each do |user| %>
+    <li><%= link_to user.name, user %></li>
+  <% end %>
+</ul></div>
