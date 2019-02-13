@@ -16,6 +16,11 @@ class User < ApplicationRecord
 
   delegate :sign, :description, :traits, :element, :polarity, :color, to: :astro, prefix: true
 
+  def self.search(query, limit = 50)
+    like_query = "%#{query}%"
+    User.where('name LIKE ? OR username LIKE ?', like_query, like_query).limit(limit)
+  end
+
   def to_param
     self.username
   end
