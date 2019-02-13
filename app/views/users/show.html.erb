@@ -6,8 +6,17 @@
     <h2 class="profile-name"><%= @user.name %></h2>
     <span class="profile-username">@<%= @user.username %></span>
     <span class="profile-birthday">Birthday: <%= @user.birthday_formatted %></span>
+
+    <% if is_current_user? %>
+      <div class="profile-actions">
+        <%= button_to "Update Profile", edit_user_path(@user) %>
+      </div>
+    <% end %>
   </div>
   <main role="main" class="col">
     <%= render @user.astro %>
+    <% if is_current_user? %>
+      <%= render "matches" %>
+    <% end %>
   </main>
 </div></div>	

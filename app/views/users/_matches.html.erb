@@ -1,0 +1,12 @@
+<div class="matches">
+  <h5>Matches</h5>
+  <% if @user.matches %>
+    <ul class="matches-list">
+    <% @user.matches.each do |match| %>
+      <li class="match-card"><%= render match %></li>
+    <% end %>
+    </ul>
+  <% else %>
+    <div class="empty">No Matches :(</div>
+  <% end %>
+</div>

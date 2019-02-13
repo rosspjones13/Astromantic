@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authorized
+
+  helper_method :is_current_user?
+
   def show
     @user = User.find_by(username: params[:username]) or not_found
   end
@@ -17,9 +21,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def is_current_user?
+    @user && @user == current_user
+  end
+
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :username, :birthday, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :username, :birthday, :password, :password_confirmation)
+  end
 end
