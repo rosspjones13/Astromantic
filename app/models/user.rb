@@ -4,7 +4,6 @@ class User < ApplicationRecord
 
   has_many :matches, foreign_key: "user1_id", dependent: :destroy
   has_many :matched, class_name: "Match", foreign_key: "user2_id", dependent: :destroy
-  # has_many :compatabilities, through: :astro
   belongs_to :astro, optional: true
 
   before_create :assign_astrological_sign
