@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authorized
   before_action :get_user, only: %i(show edit update find_matches)
+  before_action :verify_user, only: %i(edit update)
 
   helper_method :is_current_user?
 
@@ -49,5 +50,9 @@ class UsersController < ApplicationController
 
   def get_user
     @user = User.find_by(username: params[:username]) or not_found
+  end
+
+  def verify_user
+    is_current_user? or redirect_to @user
   end
 end
