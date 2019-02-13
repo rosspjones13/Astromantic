@@ -1,4 +1,5 @@
 <div class="container"><ul>
+  <h1>Showing Users for "<em><%= params[:q] %></em>"</h1>
   <% @results.each do |user| %>
     <li><%= link_to user.name, user %></li>
   <% end %>
