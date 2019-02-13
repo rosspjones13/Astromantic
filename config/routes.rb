@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :sessions, only: %i(create)
-  resources :astros, only: %i(index show)
+  resources :astros, only: %i(index show), param: :sign
   resources :users, except: %i(index), param: :username
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

@@ -4,6 +4,6 @@ class AstrosController < ApplicationController
   end
 
   def show
-    @astro = Astro.find(params[:id])
+    @astro = Astro.find_by_slug(params[:sign])
   end
 end

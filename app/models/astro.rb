@@ -9,6 +9,19 @@ class Astro < ApplicationRecord
 
   alias_attribute :name, :sign
 
+  def slug
+    self.sign.downcase.gsub(/\s/,'-')
+  end
+
+  def to_param
+    self.slug
+  end
+
+  def self.find_by_slug(slug)
+    sign_name = slug.gsub(/[-]/,' ').titlecase
+    Astro.find_by(name: sign_name)
+  end
+
   def color_class
     self.color.downcase.gsub(/[_ ]/,'-')
   end
