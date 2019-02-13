@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_one_attached :avatar
 
   has_many :matches, foreign_key: "user1_id", dependent: :destroy
   has_many :matched, class_name: "Match", foreign_key: "user2_id", dependent: :destroy
@@ -59,6 +60,14 @@ class User < ApplicationRecord
 
   def sorted_matches
     self.matches.joins(:compatability).order('score DESC')
+  end
+
+  def avatar_url
+    if self.avatar.attached?
+      self.avatar.variant(resize: "200x200!")
+    else
+      return "default-avatar-200.png"
+    end
   end
 
   private 
