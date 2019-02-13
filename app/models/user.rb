@@ -27,14 +27,6 @@ class User < ApplicationRecord
     self.birthday.strftime('%B %d, %Y')
   end
 
-  def color_class
-    self.astro_color.downcase.gsub(/[_ ]/,'-')
-  end
-
-  def polarity_class
-    self.astro_polarity.downcase
-  end
-
   def is_legal_age
     self.birthday && self.birthday <= 18.years.ago
   end

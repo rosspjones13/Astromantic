@@ -9,6 +9,14 @@ class Astro < ApplicationRecord
 
   alias_attribute :name, :sign
 
+  def color_class
+    self.color.downcase.gsub(/[_ ]/,'-')
+  end
+
+  def polarity_class
+    self.polarity.downcase
+  end
+
   def compatibility_with(astro)
     Compatability.find_by(astro1: self, astro2: astro)
   end

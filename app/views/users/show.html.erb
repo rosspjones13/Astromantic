@@ -8,17 +8,6 @@
     <span class="profile-birthday">Birthday: <%= @user.birthday_formatted %></span>
   </div>
   <main role="main" class="col">
-    <div class="astro-info <%= @user.color_class %> <%= @user.polarity_class %>">
-      <h4><%= @user.astro_sign %></h4>
-      <p><%= @user.astro_description %></p>
-      <div class="asto-attribute">
-        <span class="astro-attribute-key">Traits: </span>
-        <span class="astro-attribute-value"><%= @user.astro_traits %></span>
-      </div>
-      <div class="asto-element">
-        <span class="astro-element-key">Element: </span>
-        <span class="astro-element-value"><%= @user.astro_element %></span>
-      </div>
-    </div>
+    <%= render @user.astro %>
   </main>
 </div></div>	

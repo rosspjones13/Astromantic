@@ -1,0 +1,8 @@
+<main role="main" class="container astros">
+  <h1 class="title">Astrological Signs</h1>
+  <div class="astro-list">
+    <% @astros.each do |astro| %>
+      <%= render astro %>
+    <% end %>
+  </div>
+</main>
