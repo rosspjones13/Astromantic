@@ -25,7 +25,7 @@
           </li>
           <% end %>
         </ul>
-        <%= form_tag search_users_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
+        <%= form_tag search_users_path, method: :get, class: "nav-search form-inline my-2 my-lg-0" do %>
           <%= search_field_tag :q, nil, placeholder: "Search Users...", class: "form-control mr-sm-2" %>
           <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
         <% end %>
