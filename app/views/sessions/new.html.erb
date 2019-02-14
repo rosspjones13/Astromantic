@@ -1,5 +1,5 @@
 <div class="login-form">
-  <h1 class="h3 mb-3 font-weight-normal">Please Log In</h1>
+  <h1 class="h3 mb-3 font-weight-normal">Astromance</h1>
   <%= form_tag login_path do %>
     <div class="form-field">
       <%= label_tag :username, "Username", class: "sr-only" %>
@@ -12,5 +12,5 @@
     <%= submit_tag "Log In", class: "btn btn-md btn-primary" %>
     <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-secondary" %>
   <% end %>
+  <div class="error"><%= flash["notice"] %></div>
 </div>
-<div class="error"><%= flash["notice"] %></div>

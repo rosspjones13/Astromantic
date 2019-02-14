@@ -19,7 +19,7 @@
               <%= link_to "Log Out", logout_path, method: :delete, class: "nav-item dropdown-item" %>
             </div>
           </li>
-          <% else %>
+          <% elsif !@login %>
           <li class="nav-item">
             <%= link_to "Log In", login_path, class: "nav-link" %>
           </li>

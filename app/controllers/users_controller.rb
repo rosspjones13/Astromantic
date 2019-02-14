@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorized
+  before_action :authorized, except: %i(new create)
   before_action :get_user, only: %i(show edit update find_matches)
   before_action :verify_user, only: %i(edit update)
 
