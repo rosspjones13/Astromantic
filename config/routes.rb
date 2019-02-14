@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'sessions#home'
+  
   resources :sessions, only: %i(create)
   resources :astros, only: %i(index show), param: :sign
 

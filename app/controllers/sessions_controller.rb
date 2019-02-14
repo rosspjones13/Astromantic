@@ -18,4 +18,12 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to login_path
   end
+  
+  def home
+    if logged_in?
+      redirect_to current_user
+    else
+      redirect_to login_path
+    end
+  end
 end
