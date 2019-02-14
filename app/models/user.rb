@@ -16,6 +16,11 @@ class User < ApplicationRecord
 
   delegate :sign, :description, :traits, :element, :polarity, :color, to: :astro, prefix: true
 
+  def self.search(query, limit = 50)
+    like_query = "%#{query}%"
+    User.where('name LIKE ? OR username LIKE ?', like_query, like_query).limit(limit)
+  end
+
   def to_param
     self.username
   end
@@ -26,6 +31,12 @@ class User < ApplicationRecord
 
   def birthday_formatted
     self.birthday.strftime('%B %d, %Y')
+  end
+
+  def age
+    age = Date.today.year - self.birthday.year
+    age -= 1 if Date.today < birthday + age.years
+    return age
   end
 
   def is_legal_age
@@ -66,6 +77,14 @@ class User < ApplicationRecord
       self.avatar.variant(resize: "200x200!")
     else
       return "default-avatar-200.png"
+    end
+  end
+
+  def card_avatar_url
+    if self.avatar.attached?
+      self.avatar.variant(resize: "200x100")
+    else
+      return "default-card.png"
     end
   end
 

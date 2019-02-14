@@ -1,0 +1,8 @@
+<div class="container">
+  <h1 class="title search-title">Showing Users for <em><%= params[:q] %></em></h1>
+  <div class="user-list row">
+  <% @results.each do |user| %>
+    <div class="col-sm-3"><%= render user %></div>
+  <% end %>
+  </div>
+</div>

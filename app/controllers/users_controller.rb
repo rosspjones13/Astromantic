@@ -43,6 +43,10 @@ class UsersController < ApplicationController
     redirect_to @user
   end
 
+  def search
+    @results = User.search(params[:q])    
+  end
+
   private
 
   def user_params

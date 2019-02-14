@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   resources :astros, only: %i(index show), param: :sign
 
   resources :users, except: %i(index), param: :username do
-    member do
-      post 'find_matches'
-    end
+    member { post 'find_matches' }
+    collection { get 'search' }
   end
 
   get '/login', to: 'sessions#new'
