@@ -1,7 +1,6 @@
 # Todos
 
 * destroy links
-* titlecase user name
 * grid-ize match list
 * bootstrapify user form
 * add padding between nav login and search field

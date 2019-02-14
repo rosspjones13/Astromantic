@@ -3,7 +3,7 @@
     <div class="profile-photo">
       <%= image_tag @user.avatar_url, alt: @user.name %>
     </div>
-    <h2 class="profile-name"><%= @user.name %></h2>
+    <h2 class="profile-name"><%= @user.name.titleize %></h2>
     <span class="profile-username">@<%= @user.username %></span>
     <span class="profile-birthday">Birthday: <%= @user.birthday_formatted %></span>
 
