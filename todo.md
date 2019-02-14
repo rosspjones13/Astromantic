@@ -1,7 +1,9 @@
 # Todos
 
-* destroy links
-* grid-ize match list
-* bootstrapify user form
-* add padding between nav login and search field
-* style form errors
+## Styling
+* nav font 
+* astro info
+* astro detail key/value
+* profile avatar
+* profile info
+* horoscope
