@@ -33,6 +33,12 @@ class User < ApplicationRecord
     self.birthday.strftime('%B %d, %Y')
   end
 
+  def age
+    age = Date.today.year - self.birthday.year
+    age -= 1 if Date.today < birthday + age.years
+    return age
+  end
+
   def is_legal_age
     self.birthday && self.birthday <= 18.years.ago
   end
@@ -71,6 +77,14 @@ class User < ApplicationRecord
       self.avatar.variant(resize: "200x200!")
     else
       return "default-avatar-200.png"
+    end
+  end
+
+  def card_avatar_url
+    if self.avatar.attached?
+      self.avatar.variant(resize: "200x100")
+    else
+      return "default-card.png"
     end
   end
 
