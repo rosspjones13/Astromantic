@@ -71,3 +71,23 @@ header {
     text-decoration: none !important;
   }
 }
+
+/* forms */
+
+.field_with_errors {
+  input {
+    border-color: #dc3545;
+  }
+
+  label {
+    color: #dc3545;
+  }
+}
+
+.form-errors {
+  color: #dc3545
+}
+
+.error {
+  color: #dc3545
+}
