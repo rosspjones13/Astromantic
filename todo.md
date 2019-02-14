@@ -1,7 +1,8 @@
 # Todos
 
-* edit/update and destroy links
-* add 404
+* destroy links
 * titlecase user name
-* add logged-in name to navbar
-* navbar link to all astros
+* grid-ize match list
+* bootstrapify user form
+* add padding between nav login and search field
+* style form errors
