@@ -32,3 +32,20 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore our sample profile photos
+profiles/*.jp*
+
+
+app/assets/javascripts/comments.coffee
+app/assets/javascripts/index.coffee
+app/channels/comments_channel.rb
+app/controllers/comments_controller.rb
+app/controllers/messages_controller.rb
+app/jobs/comment_relay_job.rb
+app/models/comment.rb
+app/models/message.rb
+app/views/comments/
+app/views/messages/
+db/migrate/20150711101414_create_messages.rb
+db/migrate/20150711103112_create_comments.rb
