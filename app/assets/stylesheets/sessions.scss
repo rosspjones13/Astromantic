@@ -2,14 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.login-container {
+  margin-top: -16px;
+  background: #222529;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-title {
+  margin: 20px 0 0 0;
+  width: 100%;
+  height: 50%;
+  background-image: url("/assets/logo-white.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .login-form {
   width: 100%;
   max-width: 330px;
   padding: 15px;
   margin: auto;
   text-align: center;
+
+  .form-group { margin-bottom: 6px; }
+  .form-actions { margin-top: 12px; }
 }
 
-.login-form .form-field {
-  margin-bottom: 6px;
+.login-error {
+  margin-top: 4px;
+  color: hsla(354, 90%, 64%, 1);
 }
