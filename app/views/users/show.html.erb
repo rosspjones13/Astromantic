@@ -5,7 +5,7 @@
     </div>
     <h4 class="profile-name"><%= @user.name %></h4>
     <span class="profile-username">@<%= @user.username %></span>
-    <span class="profile-birthday"><%= @user.birthday_formatted %></span>
+    <span class="profile-birthday"><%= @user.birthday_formatted %> (<%= @user.age %>)</span>
 
     <% if is_current_user? %>
       <div class="profile-actions">
