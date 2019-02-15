@@ -7,7 +7,7 @@
     <% end %>
   <% else %>
     <div class="empty-matches">
-      <%= button_to "Find Matches...", find_matches_user_path(@user), method: :post %>
+      <%= button_to "Find Matches", find_matches_user_path(@user), method: :post, class: "btn btn-info" %>
     </div>
   <% end %>
 </div>
