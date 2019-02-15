@@ -3,12 +3,37 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .astro-info {
-  border: 2px solid #000;
+  border: 2px solid hsla(530, 80%, 36%, 0.5);
   border-radius: 6px;
-  padding: 8px;
+
+  padding: 16px;
   margin-bottom: 12px;  
 }
 
 .astro-info:last-child {
   margin-bottom: 0;
+}
+
+.astro-attribute {
+  .attribute-key {
+    font-weight: bold;
+  }
+
+  // .attribute-value {}
+}
+
+/* horoscope */
+
+.astro-horoscope {
+  border-top: 1px solid #cfcfcf;
+  margin-top: 16px;
+  padding-top: 10px;
+
+  .horoscope-title {
+    margin-bottom: 4px;
+  }
+
+  .horoscope-body {
+    margin-bottom: 4px;
+  }
 }

@@ -1,22 +1,22 @@
 <div class="astro-info <%= astro.color_class %> <%= astro.polarity_class %>">
   <h4><%= link_to astro.sign, astro %></h4>
   <p><%= astro.description %></p>
-  <div class="asto-attribute">
-    <span class="astro-attribute-key">Traits: </span>
-    <span class="astro-attribute-value"><%= astro.traits %></span>
+  <div class="astro-attribute">
+    <span class="attribute-key">Traits: </span>
+    <span class="attribute-value"><%= astro.traits %></span>
   </div>
-  <div class="asto-attribute">
-    <span class="astro-attribute-key">Most Compatible: </span>
-    <span class="astro-attribute-value"><%= astro.top_compatible_string %></span>
+  <div class="astro-attribute">
+    <span class="attribute-key">Most Compatible: </span>
+    <span class="attribute-value"><%= astro.top_compatible_string %></span>
   </div>
-  <div class="asto-element">
-    <span class="astro-element-key">Element: </span>
-    <span class="astro-element-value"><%= astro.element %></span>
+  <div class="astro-attribute">
+    <span class="attribute-key">Element: </span>
+    <span class="attribute-value"><%= astro.element %></span>
   </div>
   <% if is_current_user? %>
-    <div class="asto-element">
-      <span class="astro-element-key">Today's Horoscope: </span>
-      <span class="astro-element-value"><%= astro.daily_horoscope %></span>
+    <div class="astro-horoscope">
+      <h5 class="horoscope-title">Today's Horoscope</h5>
+      <p class="horoscope-body"><%= astro.daily_horoscope %></p>
     </div>
   <% end %>
 </div>
