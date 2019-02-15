@@ -2,6 +2,6 @@
   <%= image_tag match.card_avatar_url, alt: match.user_name, class: "card-img-top" %>
   <div class="card-body">
     <h5 class="card-title"><%= match.user_name %></h5>
-    <p class="card-text"><strong><%= match.user_astro_sign %></strong> <%= match.score_string %>!</p>
+    <p class="card-text"><strong><%= match.user_astro_sign %></strong> (<%= match.user_age %>) <em><%= match.score_string %>!</em></p>
   </div>
 </a></div>

@@ -6,7 +6,7 @@ class Match < ActiveRecord::Base
   alias_attribute :user, :user2  
   
   delegate :score, to: :compatability
-  delegate :name, :username, :astro_sign, to: :user, prefix: true
+  delegate :name, :username, :age, :astro_sign, to: :user, prefix: true
   delegate :avatar_url, :card_avatar_url, to: :user
 
   def score_string
