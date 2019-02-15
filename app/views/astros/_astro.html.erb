@@ -1,17 +1,25 @@
 <div class="astro-info <%= astro.color_class %> <%= astro.polarity_class %>">
   <h4><%= link_to astro.sign, astro %></h4>
-  <p><%= astro.description %></p>
-  <div class="astro-attribute">
-    <span class="attribute-key">Traits: </span>
-    <span class="attribute-value"><%= astro.traits %></span>
+  <div class="astro-info-main clearfix">
+    <p><%= astro.description %></p>
+    <div class="astro-icons">
+      <%= image_tag astro.symbol_icon, alt: astro.sign, class: "icon-symbol" %>
+      <%= image_tag astro.sign_icon, alt: astro.sign, class: "icon-sign" %>
+    </div>
   </div>
-  <div class="astro-attribute">
-    <span class="attribute-key">Most Compatible: </span>
-    <span class="attribute-value"><%= astro.top_compatible_string %></span>
-  </div>
-  <div class="astro-attribute">
-    <span class="attribute-key">Element: </span>
-    <span class="attribute-value"><%= astro.element %></span>
+  <div class="astro-attributes">
+    <div class="astro-attribute">
+      <span class="attribute-key">Traits: </span>
+      <span class="attribute-value"><%= astro.traits %></span>
+    </div>
+    <div class="astro-attribute">
+      <span class="attribute-key">Most Compatible: </span>
+      <span class="attribute-value"><%= astro.top_compatible_string %></span>
+    </div>
+    <div class="astro-attribute">
+      <span class="attribute-key">Element: </span>
+      <span class="attribute-value"><%= astro.element %></span>
+    </div>
   </div>
   <% if is_current_user? %>
     <div class="astro-horoscope">

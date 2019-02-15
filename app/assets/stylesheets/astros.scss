@@ -22,6 +22,38 @@
   // .attribute-value {}
 }
 
+.astro-info-main > * {
+  float: left;
+}
+
+.astro-info-main p {
+  width: 84%;
+}
+
+.astro-info-main .astro-icons {
+  width: 4%;
+}
+
+.astro-icons {
+  margin-left: 10px;
+  position: relative;
+
+  img {
+    width: 330%;
+    position: absolute;
+    transition: opacity 0.3s ease-in-out;
+    transition-delay: 0.2s;
+  }
+  
+  .icon-symbol { opacity: 1; }
+  .icon-sign { opacity: 0; }
+  
+  &:hover {
+    .icon-sign {opacity: 1;}
+    .icon-symbol {opacity: 0;}
+  }
+} 
+
 /* horoscope */
 
 .astro-horoscope {

@@ -74,7 +74,7 @@ class User < ApplicationRecord
 
   def avatar_url
     if self.avatar.attached?
-      self.avatar.variant(resize: "200x200")
+      self.avatar.variant(resize: "200x200>")
     else
       return "default-avatar-200.png"
     end
@@ -82,7 +82,7 @@ class User < ApplicationRecord
 
   def card_avatar_url
     if self.avatar.attached?
-      self.avatar.variant(resize: "200x100")
+      self.avatar.variant(resize: "200x100>")
     else
       return "default-card.png"
     end

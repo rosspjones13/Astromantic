@@ -9,6 +9,8 @@ class Astro < ApplicationRecord
 
   alias_attribute :name, :sign
 
+  ICON_FORMAT = 'svg'
+
   def slug
     self.sign.downcase.gsub(/\s/,'-')
   end
@@ -78,5 +80,13 @@ class Astro < ApplicationRecord
 
   def user_within?(user)
     self.date_within?(user.birthday)
+  end
+
+  def sign_icon
+    return "astros/sign-#{self.slug}.#{ICON_FORMAT}"
+  end
+
+  def symbol_icon
+    return "astros/symbol-#{self.slug}.#{ICON_FORMAT}"
   end
 end
