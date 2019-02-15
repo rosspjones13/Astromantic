@@ -31,7 +31,13 @@ signs = [
 
 signs.each {|sign| Astro.create(sign)}
 
-50.times do
+ActiveStorage::Variation.new(combine_options: {
+  resize: "200x200^",
+  gravity: "center",
+  crop: "200x200+0+0",
+})
+
+50.times do |i|
   user = User.create!(
     name: Faker::Name.name,
     birthday: Faker::Date.between(50.years.ago, 18.years.ago),
@@ -40,7 +46,7 @@ signs.each {|sign| Astro.create(sign)}
     password: "password",
     )
 
-  random_pic = Dir.glob("profiles/*.*").sample
+  random_pic = Dir.glob("profiles/*.*")[i]
   user.avatar.attach(io: File.open(random_pic), filename: File.basename(random_pic))
     
   user.update!(
