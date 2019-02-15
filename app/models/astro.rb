@@ -1,6 +1,6 @@
 class Astro < ApplicationRecord
-  has_many :users
-  has_many :compatabilities, class_name: "Compatability", foreign_key: "astro2_id"
+  has_many :users, dependent: :destroy
+  has_many :compatabilities, class_name: "Compatability", foreign_key: "astro2_id", dependent: :destroy
 
   validates :sign, presence: true, uniqueness: true
   validates :date_start, presence: true, uniqueness: true

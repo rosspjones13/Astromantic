@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authorized, except: %i(new create)
-  before_action :get_user, only: %i(show edit update find_matches)
-  before_action :verify_user, only: %i(edit update)
+  before_action :get_user, only: %i(show edit update destroy find_matches)
+  before_action :verify_user, only: %i(edit update destroy)
 
   def show
   end
@@ -29,6 +29,13 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @user.destroy
+    session.clear
+    flash["notice"] = nil
+    redirect_to login_path
   end
 
   def find_matches

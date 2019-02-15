@@ -1,13 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
-Astro.destroy_all
-Compatability.destroy_all
+require 'database_cleaner'
+
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean
 
 signs = [
   {sign: "Aries", character: "Ram", traits: "Ambitious, Independent, Impatient", date_start: "3/21", date_end: "4/19", color: "red", element: "Fire", polarity: "Positive", description: "The first sign of the Zodiac, Aries are the trailblazers. Passionate and independent, Aries will never do something just because everyone else is doing it—a Ram needs to be 100 percent committed to the task at hand. Competitive to the max, the best way to motivate an Aries is to turn something into a contest. Aries will put everything they have (and then some) into winning. Loyal, smart, and impulsive, they always have multiple projects on their mind, and won't be satisfied until their work, social life, and personal lives line up exactly with the dream life they've envisioned. Those who are drawn to magnetic Aries may have trouble keeping up—but if they can, they'll have a friend for life."},
@@ -43,13 +37,18 @@ signs.each {|sign| Astro.create(sign)}
     birthday: Faker::Date.between(50.years.ago, 18.years.ago),
     email: "@",
     username: "@",
-    password: "password"
-  )
-  
+    password: "password",
+    )
+
+  random_pic = Dir.glob("profiles/*.*").sample
+  user.avatar.attach(io: File.open(random_pic), filename: File.basename(random_pic))
+    
   user.update!(
     email: Faker::Internet.free_email(user.name),
     username: Faker::Internet.username(user.name, %w(_ -))
   )
+
+  sleep 1
 end
 
 score_chart = {

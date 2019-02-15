@@ -81,3 +81,23 @@ header {
     color: #000;
   }
 }
+
+/* forms */
+
+.field_with_errors {
+  input {
+    border-color: #dc3545;
+  }
+
+  label {
+    color: #dc3545;
+  }
+}
+
+.form-errors {
+  color: #dc3545
+}
+
+.error {
+  color: #dc3545
+}

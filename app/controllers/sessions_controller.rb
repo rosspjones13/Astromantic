@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
   def new
-    @login = true
+    if logged_in?
+      destroy
+    else
+      @login = true
+    end
   end
 
   def create
